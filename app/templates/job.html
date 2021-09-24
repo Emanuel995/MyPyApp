@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>
+    Job
+</h2>
+{% if job %}
+    <div class="form-group col-sm-6">
+        <fieldset>
+        <label class="form-label" for="disabledInput">Id</label>
+        <input class="form-control" id="disabledInput" type="text" readonly="" placeholder = {{job.job_id}}>
+        </fieldset>
+        <fieldset>
+            <label class="form-label" for="disabledInput">Nombre</label>
+            <input class="form-control" id="disabledInput" type="text" readonly="" placeholder = {{job.job_nombre}}>
+        </fieldset>
+        <fieldset>
+            <label class="form-label" for="disabledInput">Direccion</label>
+            <input class="form-control" id="disabledInput" type="text" readonly="" placeholder = {{job.job_direccion}}>
+        </fieldset>
+        <fieldset>
+            <label class="form-label" for="disabledInput">CUIT</label>
+            <input class="form-control" id="disabledInput" type="text" readonly="" placeholder = {{job.job_cuit}}>
+        </fieldset>
+    </div>    
+{% endif %}
+{% endblock %}

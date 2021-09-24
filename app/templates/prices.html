@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>
+    Prices
+</h2>
+{% if prices %}
+<div class="container col-12">
+    <div class="row justify-content-end">
+        <div class="col-2">
+            <a href="{% url 'job_add' %}"><i class="fas fa-plus-square"></i></a>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                <th class="col-1" scope="col"></th>
+                <th scope="col-1">Id</th>
+                <th scope="col-5">Trabajo</th>
+                <th scope="col-5">Precio</th>
+                <th scope="col-5">Dia</th>
+                <th scope="col-5">Fecha Desde</th>
+                <th scope="col-5">Fecha Hasta</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for price in prices %}
+                    <tr class="table-primary">
+                        <td class="col-1" ><a href="{% url 'price' price.price_id %}"><i class="fas fa-search" ></i></a>
+                        <a href="{% url 'prices'  %}"><i class="fas fa-edit"></i></a>
+                        <a href="{% url 'prices'  %}"><i class="fas fa-trash-alt"></i></a></td>
+                        <td class="col-1" >{{price.price_id}}</td>
+                        <td class="col-4" >{{price.job_id}}</td>
+                        <td class="col-1" >{{price.price_valor}}</td>
+                        <td class="col-1" >{{price.get_price_day_display}}</td>
+                        <td class="col-2" >{{price.price_fecha_desde}}</td>
+                        <td class="col-2" >{{price.price_fecha_hasta}}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endif %}
+{% endblock %}

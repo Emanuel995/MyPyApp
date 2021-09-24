@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>
+    Services
+</h2>
+{% if services %}
+<div class="container">
+    <div class="row justify-content-end">
+        <div class="col-1">
+            <a href="{% url 'service_add' %}"><i class="fas fa-plus-square"></i></a>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                <th class="col-1" scope="col"></th>
+                <th scope="col-1">Id</th>
+                <!--<th scope="col-1">Persona</th>-->
+                <th scope="col-1">Trabajo</th>
+                <th scope="col-1">Fecha</th>
+                <th scope="col-1">Dia</th>
+                <th scope="col-1">Hora Desde</th>
+                <th scope="col-1">Hora Hasta</th>
+                <th scope="col-1">Hora Total</th>
+                <th scope="col-1">Valor</th>
+                <th scope="col-1">Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for service in services %}
+                    <tr class="table-primary">
+                        <td class="col-1" ><a href="{% url 'service' service.service_id %}"><i class="fas fa-search" ></i></a>
+                        <a href="{% url 'service_update' service.service_id  %}"><i class="fas fa-edit"></i></a>
+                        <a href="{% url 'service_delete' service.service_id  %}"><i class="fas fa-trash-alt"></i></a></td>
+                        <td class="col-1" >{{service.service_id}}</td>
+                        <!--<td class="col-1" >{{service.person_id}}</td>-->
+                        <td class="col-1" >{{service.job_id}}</td>
+                        <td class="col-1" >{{service.service_fecha}}</td>
+                        <td class="col-1" >{{service.service_day}}</td>
+                        <td class="col-1" >{{service.service_hora_desde}}</td>
+                        <td class="col-1" >{{service.service_hora_hasta}}</td>
+                        <td class="col-1" >{{service.service_hora_total}}</td>
+                        <td class="col-1" >{{service.service_price_day_valor}}</td>
+                        <td class="col-1" >{{service.service_price_total}}</td>
+                        
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endif %}
+{% endblock %}

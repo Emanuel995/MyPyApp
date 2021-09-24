@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>
+    Price
+</h2>
+{% if price %}
+    <div class="form-group col-sm-6">
+        <fieldset>
+        <label class="form-label" for="disabledInput">Id</label>
+        <input class="form-control" id="disabledInput" type="text" readonly="" placeholder = {{price.price_id}}>
+        </fieldset>
+        <fieldset>
+            <label class="form-label" for="disabledInput">Trabajo</label>
+            <input class="form-control" id="disabledInput" type="text" readonly="" placeholder = {{price.job_id}}>
+        </fieldset>
+        <fieldset>
+            <label class="form-label" for="disabledInput">Precio</label>
+            <input class="form-control" id="disabledInput" type="text" readonly="" placeholder = {{price.price_valor}}>
+        </fieldset>
+        <fieldset>
+            <label class="form-label" for="disabledInput">Dia</label>
+            <input class="form-control" id="disabledInput" type="text" readonly="" placeholder = {{price.get_price_day_display}}>
+        </fieldset>
+        <fieldset>
+            <label class="form-label" for="disabledInput">Fecha Desde</label>
+            <input class="form-control" id="disabledInput" type="text" readonly="" placeholder = {{price.price_fecha_desde}}>
+        </fieldset>
+        <fieldset>
+            <label class="form-label" for="disabledInput">Fecha Hasta</label>
+            <input class="form-control" id="disabledInput" type="text" readonly="" placeholder = {{price.price_fecha_hasta}}>
+        </fieldset>
+    </div>    
+{% endif %}
+{% endblock %}

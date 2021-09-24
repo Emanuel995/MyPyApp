@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>
+    Service
+</h2>
+{% if service %}
+    <div class="form-group col-sm-6">
+        <fieldset>
+        <label class="form-label" for="disabledInput">Id</label>
+        <input class="form-control" id="disabledInput" type="text" readonly="" placeholder = {{service.service_id}}>
+        </fieldset>
+        <fieldset>
+            <label class="form-label" for="disabledInput">Persona</label>
+            <input class="form-control" id="disabledInput" type="text" readonly="" placeholder = {{service.person_id}}>
+        </fieldset>
+        <fieldset>
+            <label class="form-label" for="disabledInput">Trabajo</label>
+            <input class="form-control" id="disabledInput" type="text" readonly="" placeholder = {{service.job_id}}>
+        </fieldset>
+        <fieldset>
+            <label class="form-label" for="disabledInput">Fecha</label>
+            <input class="form-control" id="disabledInput" type="text" readonly="" placeholder = {{service.service_fecha}}>
+        </fieldset>
+        <fieldset>
+            <label class="form-label" for="disabledInput">Hora Desde</label>
+            <input class="form-control" id="disabledInput" type="text" readonly="" placeholder = {{service.service_hora_desde}}>
+        </fieldset>
+        <fieldset>
+            <label class="form-label" for="disabledInput">Hora Hasta</label>
+            <input class="form-control" id="disabledInput" type="text" readonly="" placeholder = {{service.service_hora_hasta}}>
+        </fieldset>
+    </div>    
+{% endif %}
+{% endblock %}

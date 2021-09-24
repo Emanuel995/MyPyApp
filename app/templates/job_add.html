@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+<legend>
+    Job
+</legend>
+    <div class="form-group col-sm-6">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% for field in form %}
+            <fieldset>
+                <div class="fieldWrapper">
+                        
+                        <label class="form-label" for="{{ field.id_for_label }}"> {{ field.label }}</label>
+                        <input class="form-control  {% if field.errors %} is-invalid {% endif %}" name="{{ field.html_name }}" type="{{field.field.widget.input_type}}"  placeholder = "">
+                        {% if field.errors %}
+                        <div class="invalid-feedback">{{field.errors}}</div>
+                        {% endif %}
+                </div>
+            </fieldset>
+            {% endfor %}
+            <button type="submit" class="btn btn-outline-primary">Confirmar</button>
+        </form>
+    </div>    
+{% endblock %}
