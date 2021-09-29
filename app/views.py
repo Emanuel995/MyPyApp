@@ -83,6 +83,7 @@ class ServiceDeleteView(generic.DeleteView):
     template_name = 'service_delete.html'
     success_url = '/app/jobs/'
 
+
 def index(request):
     template = loader.get_template('index.html')
     context = { }
