@@ -5,6 +5,7 @@ from django.db.models.deletion import CASCADE
 from django.urls.base import reverse
 from datetime import timedelta
 import datetime
+from django.contrib.auth.models import User
 # Create your models here.
 
 class Person (models.Model):
