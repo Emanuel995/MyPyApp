@@ -1,10 +1,30 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <legend>Sign up</legend>
+
+<div class="col-auto">
+  <div class="text-center m-2">
+    <legend>
+      Sign up
+    </legend>
+  </div>
   <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit" class="btn btn-outline-primary">Sign Up</button>
+    {% csrf_token %}    
+    {% for field in form %}
+
+      <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+      <input class="form-control  {% if field.errors %} is-invalid {% endif %}" type="{{field.field.widget.input_type}}" name="{{ field.html_name }}"/>
+      {% if field.errors %}
+      <div class="invalid-feedback">{{ field.errors }}</div>
+      {% endif %}
+
+    {% endfor %}
+    <div class="text-center m-2">
+      <button type="submit" class="btn btn-outline-primary">Sign Up</button>
+    </div>
+    <div>
+      <label for="">{{ user }}</label>
+    </div>
   </form>
+</div>
 {% endblock %}

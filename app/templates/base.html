@@ -52,11 +52,21 @@
               {% endif %}
             </ul>
             <form class="d-flex">
-              <input class="form-control me-sm-2" type="text" placeholder="Search">
+              
               {% if user.is_authenticated %}
+              <ul class="navbar-nav me-auto m-2">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{{ user }}</a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="#">Action</a>
+                  <a class="dropdown-item" href="#">Another action</a>
+                </div>
+              </li>
+              </ul>
               <a href="{% url 'logout' %}" class="btn btn-success"> Logout</a>
               {% else %}
               <a href="{% url 'login' %}" class="btn btn-success">Login</a>
+              <a href="{% url 'signup' %}" class="btn btn-success">Sign Up</a>
               {% endif %}
             </form>
           </div>
@@ -64,21 +74,8 @@
     </nav>
   <div class="container-fluid">
 
-    <div class="row">
-      <div class="col-sm-1">
-      {% if user.is_authenticated%}
-      {% block sidebar %}
-      <ul class="sidebar-nav">
-          <li><a href="{% url 'index' %}">Home</a></li>
-          <li><a href="">books</a></li>
-          <li><a href="">authors</a></li>
-      </ul>
-      {% endblock %}
-      {% endif %}
-      </div>
-      <div class="col-sm-11 ">
+    <div class="row justify-content-center">
         {% block content %}{% endblock %}
-      </div>
     </div>
 
   </div>
