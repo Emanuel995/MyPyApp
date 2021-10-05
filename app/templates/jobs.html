@@ -10,7 +10,6 @@
     <div class="col-auto">
         <a class="btn-sm btn-success" href="{% url 'job_add' %}"><i class="fas fa-plus-square"></i></a>
     </div>
-
 </div>
 {% if jobs %}
 <div class="row justify-content-center">
@@ -33,7 +32,7 @@
                     <td class="col">
                         <a class="btn-sm btn-info" href="{% url 'job' job.job_id %}"><i class="fas fa-search"></i></a>
                         <a class="btn-sm btn-info" href="{% url 'job_update' job.job_id %}"><i class="fas fa-edit"></i></a>
-                        <a class="btn-sm btn-info" href="{% url 'job_delete' job.job_id %}"><i class="fas fa-trash-alt"></i></button>
+                        <a class="btn-sm btn-danger" href="{% url 'job_delete' job.job_id %}"><i class="fas fa-trash-alt"></i></button>
                     </td>
                     <td class="col">{{job.job_id}}</td>
                     <td class="col">{{job.job_nombre}}</td>
