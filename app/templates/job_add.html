@@ -1,24 +1,30 @@
 {% extends "base.html" %}
 {% block content %}
-<legend>
-    Job
-</legend>
-    <div class="form-group col-sm-6">
-        <form method="POST" enctype="multipart/form-data">
-            {% csrf_token %}
-            {% for field in form %}
-            <fieldset>
-                <div class="fieldWrapper">
-                        
-                        <label class="form-label" for="{{ field.id_for_label }}"> {{ field.label }}</label>
-                        <input class="form-control  {% if field.errors %} is-invalid {% endif %}" name="{{ field.html_name }}" type="{{field.field.widget.input_type}}"  placeholder = "">
-                        {% if field.errors %}
-                        <div class="invalid-feedback">{{field.errors}}</div>
-                        {% endif %}
-                </div>
-            </fieldset>
-            {% endfor %}
-            <button type="submit" class="btn btn-outline-primary">Confirmar</button>
-        </form>
-    </div>    
+<div class="row justify-content-center">
+    <div class="col-auto m-2">
+        <legend>
+            Job
+        </legend>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-auto">
+            <div class="form-group">
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {% for field in form %}
+                    <label class="form-label" for="{{ field.id_for_label }}"> {{ field.label }}</label>
+                    <input class="form-control  {% if field.errors %} is-invalid {% endif %}"
+                        name="{{ field.html_name }}" type="{{field.field.widget.input_type}}" placeholder="">
+                    {% if field.errors %}
+                    <div class="invalid-feedback">{{field.errors}}</div>
+                    {% endif %}
+                    {% endfor %}
+                    <div class="text-center m-2">
+                    <button type="submit" class="btn btn-outline-primary">Confirmar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
